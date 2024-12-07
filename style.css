@@ -10,12 +10,20 @@
 
 code {
   font-family: 'Courier New', Courier, monospace;
-  background-color: #f6f6f6;
-  color: #006c85;
+  font-style: bold;
+  color: black;
   padding: 2px 5px;
-  border-radius: 3px;
+  size: 50px;
 }
 
+a {
+  font-style: bold;
+  color: #006c85;
+}
+
+b {
+  color: #006c85;
+}
 
 body {
   width: 100%;

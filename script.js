@@ -69,13 +69,19 @@ let apiResponseText = data.candidates[0].content.parts[0].text.trim();
 
 apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>");
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<em>$1</em>");
+apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<b>$1</b>");
+
+apiResponseText = apiResponseText.replace(/\*(.*?)\:/g, "<br><b>$1</b><br>");
+
+apiResponseText = apiResponseText.replace(/\*(.*?)\?/g, "<br><b>$1</b>?<br>");
 
 apiResponseText = apiResponseText.replace(/```([\s\S]*?)```/g, "<br><code>$1</code><br>");
 
 apiResponseText = apiResponseText.replace(/`([\s\S]*?)`/g, "<code>$1</code>");
 
 apiResponseText.replace(/Gemini/g, "OmniAI");
+
+apiResponseText = apiResponseText.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
 
 messageElement.innerHTML = apiResponseText;
 
