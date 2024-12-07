@@ -19,7 +19,7 @@ OmniAI is a high-performance, AI-powered website designed to deliver fast, accur
 **1. Clone the repository:**
 
 ```git clone https://github.com/YourUsername/OmniAI.git
-cd OmniAI```
-
-**2. Open index.html your browser**
+cd OmniAI
+```
+**2. *Open index.html* your browser**
 
