@@ -21,7 +21,13 @@ const userData = {
 };
 
 // Store chat history
-const chatHistory = [];
+  const chatHistory = [{
+    role: "model",
+    parts: [{
+       text: "OmniOS by WailTech, designed by Wail Achouri"
+    }],
+ }];
+ 
 const initialInputHeight = messageInput.scrollHeight;
 
 // Create message element with dynamic classes and return it
@@ -61,14 +67,15 @@ const generateBotResponse = async (incomingMessageDiv) => {
 let apiResponseText = data.candidates[0].content.parts[0].text.trim();
 
 
-apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-
+apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>");
 
 apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<em>$1</em>");
 
+apiResponseText = apiResponseText.replace(/```([\s\S]*?)```/g, "<br><code>$1</code><br>");
 
-apiResponseText = apiResponseText.replace(/```(.*?)```/g, "<code>$1</code>");
+apiResponseText = apiResponseText.replace(/`([\s\S]*?)`/g, "<code>$1</code>");
 
+apiResponseText.replace(/Gemini/g, "OmniAI");
 
 messageElement.innerHTML = apiResponseText;
 

@@ -10,16 +10,39 @@
 
 code {
   font-family: 'Courier New', Courier, monospace;
-  background-color: #f4f4f4;
+  background-color: #f6f6f6;
+  color: #006c85;
   padding: 2px 5px;
   border-radius: 3px;
 }
+
 
 body {
   width: 100%;
   min-height: 100vh;
   background: #fff;
   overflow: hidden;
+}
+.context-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  border-radius: 15px;
+  width: 150px;
+}
+
+.context-menu li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.context-menu li:hover {
+  background-color: #ccfff5;
+  border-radius: 8px;
 }
 
 #chatbot-toggler {
@@ -34,9 +57,31 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #5350C4;
+  background: #006c85;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
+}
+
+
+.chat-header #close-chatbot {
+  border: none;
+  color: #006c85;
+  height: 40px;
+  width: 40px;
+  font-size: 1.9rem;
+  margin-right: 10px;
+  padding-top: 2px;
+  cursor: pointer;
+  border-radius: 30%;
+  background: none;
+  transition: 0.2s ease;
+  margin-left: auto; 
+}
+
+
+.chat-header #close-chatbot:hover {
+  background: #ccfff5;
+  color: #006c85;
 }
 
 body.show-chatbot #chatbot-toggler {
@@ -77,7 +122,10 @@ body.show-chatbot .chatbot-popup {
   padding: 15px 22px;
   background: #fff;
   justify-content: space-between;
+  position: relative;
+  gap: 10px;
 }
+
 
 .chat-header .header-info {
   display: flex;
@@ -184,7 +232,7 @@ body.show-chatbot .chatbot-popup {
   width: 7px;
   opacity: 0.7;
   border-radius: 50%;
-  background: #6F6BC2;
+  background: #006c85;
   animation: dotPulse 1.8s ease-in-out infinite;
 }
 
