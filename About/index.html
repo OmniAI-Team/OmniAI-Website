@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducing OmniAI</title>
+    <link rel="icon" href="1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="chatbot-popup">
+        <!-- OmniAI Header -->
+        <div class="chat-header">
+            <div class="header-info">
+                <img src="1.png" class="chatbot-logo" width="50" height="50" alt="Chatbot Logo">
+                <h2 class="logo-text">OmniAI</h2>
+            </div>
+            <button id="close-chatbot" class="material-symbols-rounded">play_circle</button> 
+        </div>
+<!-- القسم التقديمي -->
+<header class="intro-section">
+    <div class="intro-content">
+        <img src="2.png" alt="OmniAI Logo" class="intro-logo">
+        <h1>Welcome to OmniAI</h1>
+        <p>
+            OmniAI is your fast, beautifully designed AI assistant tailored for lightweight devices.  
+            Enjoy limitless photo sharing, elegantly formatted messages, and comprehensive solutions to a variety of challenges.  
+        </p>
+        <button class="cta-button">Get Started</button>
+    </div>
+</header>
+
+<!-- قسم المزايا -->
+<section class="features-section">
+    <h2>Why OmniAI?</h2>
+    <div class="features">
+        <div class="feature">
+            <span class="material-symbols-rounded">smart_toy</span>
+            <h3>Smart AI</h3>
+            <p>Delivers human-like responses using advanced AI technology.</p>
+        </div>
+        <div class="feature">
+            <span class="material-symbols-rounded">image</span>
+            <h3>Unlimited Image Sharing</h3>
+            <p>Send as many photos as you want without any restrictions.</p>
+        </div>
+        <div class="feature">
+            <span class="material-symbols-rounded">format_paint</span>
+            <h3>Beautifully Styled Messages</h3>
+            <p>Compose messages that are clear, polished, and visually appealing.</p>
+        </div>
+        <div class="feature">
+            <span class="material-symbols-rounded">build</span>
+            <h3>Problem Solving</h3>
+            <p>Get assistance with a wide range of challenges effortlessly.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 OmniAI Team from WailTech. All Rights Reserved.</p>
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+const ctaButton = document.querySelector('.cta-button');
+ctaButton.addEventListener('click', () => {
+window.location.href = 'https://omniai-website.pages.dev/';
+});
+const closeButton = document.querySelector('#close-chatbot');
+closeButton.addEventListener('click', () => {
+window.location.href = 'https://omniai-website.pages.dev/'; // قم بوضع الرابط الخاص بك هنا.
+
+});
+
+</script>
+</body>
+</html>

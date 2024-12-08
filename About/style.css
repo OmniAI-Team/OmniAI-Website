@@ -1,0 +1,172 @@
+/* Importing Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.chat-header #close-chatbot {
+  border: none;
+  color: #006c85;
+  height: 40px;
+  width: 40px;
+  font-size: 1.9rem;
+  margin-right: 10px;
+  padding-top: 2px;
+  cursor: pointer;
+  border-radius: 30%;
+  background: none;
+  transition: 0.2s ease;
+  margin-left: auto; 
+}
+
+
+.chat-header #close-chatbot:hover {
+  background: #ccfff5;
+  color: #006c85;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 22px;
+  background: #fff;
+  justify-content: space-between;
+  position: relative;
+  gap: 10px;
+}
+
+
+.chat-header .header-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-info .chatbot-logo {
+  width: 35px;
+  height: 35px;
+  padding: 6px;
+  fill: #0021ff;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.header-info .logo-text {
+  color: black;
+  font-weight: 600;
+  font-size: 1.31rem;
+  letter-spacing: 0.02rem;
+}
+
+
+h1, h2 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.intro-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom, #006c85, #01ba9d);
+  color: #fff;
+}
+
+.intro-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro-logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.intro-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.intro-section p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background: #006c85;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 35px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #01ba9d;
+}
+
+.features-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #006c85;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  background: #ccfff5;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.feature p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.material-symbols-rounded {
+  font-size: 3rem;
+  color: #006c85;
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #ccfff5;
+  color: #006c85;
+}

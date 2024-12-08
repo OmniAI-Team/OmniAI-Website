@@ -185,20 +185,20 @@ body.show-chatbot .chatbot-popup {
   margin-bottom: 82px;
   flex-direction: column;
   scrollbar-width: thin;
-  scrollbar-color: #ccccf5 transparent;
+  scrollbar-color: #ccfff5 transparent;
   padding-bottom: 100px;
 }
 
 .chat-body,
 .chat-form .message-input:hover {
-  scrollbar-color: #ccccf5 transparent;
+  scrollbar-color: #ccfff5 transparent;
 }
 
 .chat-body .message {
   display: flex;
   gap: 11px;
   align-items: center;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
 }
 
 .chat-body .message .bot-avatar {

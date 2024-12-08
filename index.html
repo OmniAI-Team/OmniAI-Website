@@ -117,8 +117,14 @@
       
 
         window.onload = updateSuggestionsOnLoad;
+
+        const closeButton = document.querySelector('#close-chatbot');
+        closeButton.addEventListener('click', () => {
+        window.location.href = '../About/index.html'; // قم بوضع الرابط الخاص بك هنا.
+        });
+
       </script>
       
       
 </body>
-</htm
+</html>
