@@ -16,20 +16,28 @@
                 <img src="1.png" class="chatbot-logo" width="50" height="50" alt="Chatbot Logo">
                 <h2 class="logo-text">OmniAI</h2>
             </div>
-            <!-- <button id="close-chatbot" class="material-symbols-rounded">edit_square</button>
-            <button id="close-chatbot" class="material-symbols-rounded">lightbulb</button> -->
+            <button id="close-chatbot" class="material-symbols-rounded">lightbulb</button> 
         </div>
         <!-- OmniAI Body -->
         <div class="chat-body">
-            <div class="message bot-message">
-                <img class="bot-avatar" src="2.png"  width="50" height="50" viewBox="0 0 1024 1024">
+            <center>
+                <div class="message bot-message" style="display: table-cell;">
                 <div class="message-text" id="message-text">
-                    Hey there I am OmniAI<br />
-                    How can I help you today? 
-                    <br />
+                    <img src="2.png" class="bot-avatar" width="25" height="25" alt="OmniAI Logo">
+                    <br/>
+                    What can I help with?
+                    <br/>
+                    <span class="suggestion-btn" onclick="changeTextareaText(this)">
+                        
+                    </span>
+                    <span class="suggestion-btn" onclick="changeTextareaText(this)">
+                        
+                    </span>
+                    <br/>                    
                     <p class="disclaimer-text">OmniAI can make mistakes. Check important info.</p>
                 </div>
             </div>
+        </center>
         </div>
         <!-- OmniAI Footer -->
         <div class="chat-footer">
@@ -52,5 +60,65 @@
 
     <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
     <script src="script.js"></script>
+    <script>
+
+        const suggestions = [
+  'Explain a concept',
+  'Write a story',
+  'Give me advice',
+  'Help with homework',
+  'Summarize an article',
+  'Generate creative ideas',
+  'Translate a sentence',
+  'Suggest a book to read',
+  'Give me a recipe',
+  'Write a poem',
+  'Help with coding',
+  'Explain a joke',
+  'Tell me a fun fact',
+  'Answer a trivia question',
+  'Teach me something new',
+  'Create a study plan',
+  'Generate a business idea',
+  'Write an email for me',
+  'Suggest a workout routine',
+  'Help me learn a language',
+  'Provide life hacks',
+  'Give me career advice',
+  'Suggest a movie to watch',
+  'Help me with a presentation',
+  'Create a to-do list for me'
+];
+
+      
+
+        function changeTextareaText(button) {
+          const messageInput = document.querySelector('.message-input');
+          messageInput.value = button.textContent.trim(); 
+        }
+      
+
+        function updateSuggestionsOnLoad() {
+          const messageTextDiv = document.getElementById('message-text');
+          
+
+          const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+          
+
+          const suggestionButtons = messageTextDiv.querySelectorAll('.suggestion-btn');
+          suggestionButtons.forEach((button, index) => {
+
+            button.textContent = suggestions[Math.floor(Math.random() * suggestions.length)];
+          });
+      
+
+          messageTextDiv.querySelector('p.disclaimer-text').innerText = 'OmniAI can make mistakes. Check important info.';
+        }
+      
+
+        window.onload = updateSuggestionsOnLoad;
+      </script>
+      
+      
 </body>
-</html>
+</htm
