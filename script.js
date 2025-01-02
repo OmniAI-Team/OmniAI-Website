@@ -8,7 +8,7 @@ const chatbotToggler = document.querySelector("#chatbot-toggler");
 const closeChatbot = document.querySelector("#close-chatbot");
 
 // API setup
-const API_KEY = "AIzaSyA-ykZlYT09gfwtwjnJdONxlNgyl3UltHg";
+const API_KEY = "AIzaSyCQNF4Wt3rNpg_wCRb8g05uJdK61O6bk6E";
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 // Initialize user message and file data
@@ -143,7 +143,7 @@ const handleOutgoingMessage = (e) => {
 messageInput.addEventListener("input", () => {
   messageInput.style.height = `${initialInputHeight}px`;
   messageInput.style.height = `${messageInput.scrollHeight}px`;
-  document.querySelector(".chat-form").style.borderRadius = messageInput.scrollHeight > initialInputHeight ? "12px" : "12px";
+  document.querySelector(".chat-form").style.borderRadius = messageInput.scrollHeight > initialInputHeight ? "100px" : "100px";
 });
 
 // Handle Enter key press for sending messages

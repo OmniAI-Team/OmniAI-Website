@@ -15,22 +15,93 @@ code {
   padding: 2px 5px;
   size: 50px;
 }
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 40%;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.3s ease;
+  text-align: center;
+  position: relative; /* لجعل الزر داخل المحتوى */
+}
+
+.close {
+  color: #aaa;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
+}
+
+#close-chatbot {
+  font-size: 24px;
+  color: #3498db;
+  transition: color 0.3s ease;
+}
+
+#close-chatbot:hover {
+  color: #2980b9;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
 .suggestion-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
   padding: 10px 15px;
   font-size: 14px;
-  background-color: #006c85;
-  color: #ffffff;
+  background-color: #f9f9f9;
+  color: #000000;
   border: none;
-  border-radius: 10px;
+  border-radius: 50px;
   margin: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.suggestion-btn i {
+  margin-right: 10px;
+  font-size: 16px;
+  transition: transform 0.3s ease;
 }
 
+.suggestion-btn:hover i {
+  transform: scale(1.2);
+}
+
+.suggestion-btn:hover {
+  background-color: #e0e0e0;
+}
+.suggestion-btn i {
+  font-size: 18px;
+}
 a {
   font-style: bold;
   color: #006c85;
@@ -48,15 +119,22 @@ body {
 }
 
 .context-menu {
-  display: none;
   position: absolute;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   list-style-type: none;
   padding: 10px;
   margin: 0;
+  border: none !important;
   border-radius: 15px;
-  width: 150px;
+  font-weight: bold;
+  font-size: 1.31rem;
+  letter-spacing: 0.02rem;
+  font-family: "Inter Bold", sans-serif;
+  display: flex;
+  gap: 10px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .context-menu li {
@@ -68,6 +146,7 @@ body {
   background-color: #ccfff5;
   border-radius: 8px;
 }
+
 
 #chatbot-toggler {
   position: fixed;
@@ -81,7 +160,7 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #006c85;
+  background: #f9f9f9;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 }
@@ -89,7 +168,7 @@ body {
 
 .chat-header #close-chatbot {
   border: none;
-  color: #006c85;
+  color: #000000;
   height: 40px;
   width: 40px;
   font-size: 1.9rem;
@@ -104,8 +183,8 @@ body {
 
 
 .chat-header #close-chatbot:hover {
-  background: #ccfff5;
-  color: #006c85;
+  background: #f9f9f9;
+  color: #000000;
 }
 
 body.show-chatbot #chatbot-toggler {
@@ -153,7 +232,6 @@ body.show-chatbot .chatbot-popup {
 
 .chat-header .header-info {
   display: flex;
-  gap: 10px;
   align-items: center;
 }
 
@@ -191,7 +269,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body,
 .chat-form .message-input:hover {
-  scrollbar-color: #ccfff5 transparent;
+  scrollbar-color: #ffffff transparent;
 }
 
 .chat-body .message {
@@ -210,7 +288,7 @@ body.show-chatbot .chatbot-popup {
   margin-bottom: 2px;
   align-self: flex-end;
   border-radius: 50%;
-  background: #006c85;
+  background: #000000;
 }
 
 .chat-body .message .message-text {
@@ -224,7 +302,7 @@ body.show-chatbot .chatbot-popup {
 }
 
 .chat-body .bot-message .message-text {
-  background: #effffc;
+  background: #fff;
   border-radius: 13px 13px 13px 13px;
 }
 
@@ -234,9 +312,9 @@ body.show-chatbot .chatbot-popup {
 }
 
 .chat-body .user-message .message-text {
-  color: #fff;
-  background: #006c85;
-  border-radius: 13px 13px 13px 13px;
+  color: #000000;
+  background: #ececec;
+  border-radius: 50px 50px 50px 50px;
 }
 
 .chat-body .user-message .attachment {
@@ -256,7 +334,7 @@ body.show-chatbot .chatbot-popup {
   width: 7px;
   opacity: 0.7;
   border-radius: 50%;
-  background: #006c85;
+  background: #000000;
   animation: dotPulse 1.8s ease-in-out infinite;
 }
 
@@ -301,17 +379,14 @@ body.show-chatbot .chatbot-popup {
   display: flex;
   align-items: center;
   position: relative;
-  background: #fff;
-  border-radius: 15px;
-  outline: 1px solid #CCCCE5;
+  background: #ececec;
+  border-radius: 100px;
+  outline: 1px solid #ececec;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
   transition: 0s ease, border-radius 0s;
   margin: 0 250px;
 }
 
-.chat-form:focus-within {
-  outline: 2px solid #006c85;
-}
 
 .chat-form .message-input {
   width: 100%;
@@ -324,6 +399,8 @@ body.show-chatbot .chatbot-popup {
   font-size: 0.95rem;
   padding: 14px 0 12px 18px;
   scrollbar-color: transparent transparent;
+  background: #ececec;
+  border-radius: 100px;
 
 }
 
@@ -341,8 +418,8 @@ body.show-chatbot .chatbot-popup {
   width: 35px;
   border: none;
   cursor: pointer;
-  color: #006c85;
-  border-radius: 25%;
+  color: #000000;
+  border-radius: 100%;
   font-size: 1.15rem;
   background: none;
   transition: 0.2s ease;
@@ -350,19 +427,19 @@ body.show-chatbot .chatbot-popup {
 
 .chat-form .chat-controls button:hover,
 body.show-emoji-picker .chat-controls #emoji-picker {
-  color: #006c85;
-  background: #ccfff5;
+  color: #000000;
+  background: #b4b4b4;
 }
 
 .chat-form .chat-controls #send-message {
   color: #fff;
   display: none;
-  background: #006c85;
+  background: #000000;
 }
 
 .chat-form .chat-controls #send-message:hover {
-  color: #006c85;
-  background: #ccfff5;
+  color: #000000;
+  background: #b4b4b4;
 }
 
 .chat-form .message-input:valid~.chat-controls #send-message {
@@ -422,9 +499,58 @@ body.show-emoji-picker em-emoji-picker {
   color: #6C6C6C;
 }
 
+
 @media (max-width: 768px) {
   .chat-footer .chat-form {
     margin: 0 10px;
     padding: 0 10px;
   }
+  
+  .message-text {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .message {
+    width: 90%;
+  }
+
+  span {
+    font-size: 18px;
+  }
+
+  .disclaimer-text {
+    font-size: 10px;
+  }
+
+  .bot-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .suggestion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
 }
+
+  
+  .suggestion-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .suggestion-btn:hover {
+    background-color: #e0e0e0;  /* تغيير اللون عند التمرير فوق الزر */
+  }
+  
+}  
