@@ -8,12 +8,24 @@
   font-family: "Inter", sans-serif;
 }
 
-code {
+h5 {
   font-family: 'Courier New', Courier, monospace;
   font-style: bold;
   color: black;
   padding: 2px 5px;
-  size: 50px;
+  font-size: 15px;
+}
+code {
+  font-family: 'Courier New', Courier, monospace; /* نوع الخط */
+  font-weight: bold; /* جعل النص عريض */
+  color: black; /* لون النص */
+  padding: 10px 15px; /* المسافة داخل المربع */
+  font-size: 15px; /* حجم الخط */
+  border-radius: 10px; /* زوايا دائرية */
+  background-color: #f5f5f5; /* خلفية فاتحة */
+  display: inline-block; /* لعرض المربع بشكل مضمن */
+  max-width: auto; /* أقصى عرض للمربع */
+  word-wrap: break-word; /* كسر النص إذا كان طويلاً */
 }
 .modal-content {
   background-color: white;
@@ -293,7 +305,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body .message .message-text {
   padding: 12px 16px;
-  max-width: 75%;
+  max-width: auto;
   font-size: 0.95rem;
 }
 
@@ -303,7 +315,6 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body .bot-message .message-text {
   background: #fff;
-  border-radius: 13px 13px 13px 13px;
 }
 
 .chat-body .user-message {
@@ -506,15 +517,6 @@ body.show-emoji-picker em-emoji-picker {
     padding: 0 10px;
   }
   
-  .message-text {
-    padding: 15px;
-    gap: 15px;
-  }
-
-  .message {
-    width: 90%;
-  }
-
   span {
     font-size: 18px;
   }
