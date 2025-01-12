@@ -109,23 +109,50 @@ const generateBotResponse = async (incomingMessageDiv) => {
 let apiResponseText = data.candidates[0].content.parts[0].text.trim();
 
 
-apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>");
+const generateBotResponse = async (incomingMessageDiv) => {
+  try {
+    // Add the call to run() here if needed
+    await run();
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<h2>$1</h2>");
+    const messageElement = incomingMessageDiv.querySelector(".message-text");
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\:/g, "<br><h2>$1</h2><hr><br>");
+    // Add user message to chat history
+    chatHistory.push({
+      role: "user",
+      parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
+    });
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\?/g, "<br><b>$1</b>?<br>");
+    // API request options
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: chatHistory,
+      }),
+    };
 
-apiResponseText = apiResponseText.replace(/```([\s\S]*?)```/g, "<br><code>$1</code><br>");
+    // Fetch bot response from API
+    const response = await fetch(API_URL, requestOptions);
+    const data = await response.json();
 
-apiResponseText = apiResponseText.replace(/`([\s\S]*?)`/g, "<h5>$1</h5>");
+    if (!response.ok) throw new Error(data.error.message);
 
-apiResponseText.replace(/Gemini/g, "OmniAI");
+    // Extract and display bot's response text with formatting
+    let apiResponseText = data.candidates[0].content.parts[0].text.trim();
 
-apiResponseText = apiResponseText.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+    // Formatting bot response
+    apiResponseText = apiResponseText
+      .replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>")
+      .replace(/\*(.*?)\*/g, "<h2>$1</h2>")
+      .replace(/\*(.*?)\:/g, "<br><h2>$1</h2><hr><br>")
+      .replace(/\*(.*?)\?/g, "<br><b>$1</b>?<br>")
+      .replace(/```([\s\S]*?)```/g, "<br><code>$1</code><br>")
+      .replace(/`([\s\S]*?)`/g, "<h5>$1</h5>")
+      .replace(/Gemini/g, "OmniAI")
+      .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
 
-messageElement.innerHTML = apiResponseText;
+    // Set the response text to the message element
+    messageElement.innerHTML = apiResponseText;
 
     // Add bot response to chat history
     chatHistory.push({
@@ -134,17 +161,19 @@ messageElement.innerHTML = apiResponseText;
     });
   } catch (error) {
     // Handle error in API response
-    console.log(error);
-    messageElement.innerText = "An error occurred. Either the engine you requested does not exist or there was another issue processing your request. If this issue persists please contact us through our help center at OmniAI Help.";
+    console.error("Error fetching bot response:", error);
+    const messageElement = incomingMessageDiv.querySelector(".message-text");
+    messageElement.innerText = "An error occurred. Either the engine you requested does not exist, or there was another issue processing your request. If this issue persists, please contact us through our help center at OmniAI Help.";
     messageElement.style.color = "#ff0000";
-	messageElement.style.background = "#ffe7e7";
+    messageElement.style.background = "#ffe7e7";
   } finally {
-    // Reset user's file data, removing thinking indicator and scroll chat to bottom
+    // Reset user's file data, remove thinking indicator and scroll chat to bottom
     userData.file = {};
     incomingMessageDiv.classList.remove("thinking");
     chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
   }
 };
+
 
 // Handle outgoing user messages
 const handleOutgoingMessage = (e) => {
