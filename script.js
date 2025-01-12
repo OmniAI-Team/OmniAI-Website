@@ -39,65 +39,78 @@ const createMessageElement = (content, ...classes) => {
 };
 
 // Generate bot response using API
-const generateBotResponse = async (incomingMessageDiv) => {
-  const messageElement = incomingMessageDiv.querySelector(".message-text");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-  // Add user message to chat history
-  chatHistory.push({
-    role: "user",
-    parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
+const apiKey = process.env.GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(apiKey);
+
+// استخدم النموذج المحسن بعد fine-tuning
+const model = genAI.getGenerativeModel({
+  model: "gemini-1.5-flash", // هنا ضع ID النموذج المعدّل بعد التدريب
+});
+
+const generationConfig = {
+  temperature: 1,
+  topP: 0.95,
+  topK: 40,
+  maxOutputTokens: 8192,
+  responseMimeType: "text/plain",
+};
+
+async function run(parts) {
+  const result = await model.generateContent({
+    contents: [{ role: "user", parts }],
+    generationConfig,
   });
 
-  // API request options
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: chatHistory,
-    }),
-  };
+  return result.response.text();
+}
 
+const generateBotResponse = async (incomingMessageDiv) => {
   try {
-    // Fetch bot response from API
-    const response = await fetch(API_URL, requestOptions);
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
+    const messageElement = incomingMessageDiv.querySelector(".message-text");
 
-// Extract and display bot's response text with formatting
-let apiResponseText = data.candidates[0].content.parts[0].text.trim();
+    // Add user message to chat history
+    chatHistory.push({
+      role: "user",
+      parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
+    });
 
+    // Prepare the parts for API
+    const parts = [
+      { text: `input: ${userData.message}` },
+    ];
 
-apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>");
+    // Get bot's response
+    const apiResponseText = await run(parts);
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<h2>$1</h2>");
+    // Formatting bot response
+    let formattedResponse = apiResponseText
+      .replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>")
+      .replace(/\*(.*?)\*/g, "<h2>$1</h2>")
+      .replace(/\*(.*?)\:/g, "<br><h2>$1</h2><hr><br>")
+      .replace(/\*(.*?)\?/g, "<br><b>$1</b>?<br>")
+      .replace(/```([\s\S]*?)```/g, "<br><code>$1</code><br>")
+      .replace(/`([\s\S]*?)`/g, "<h5>$1</h5>")
+      .replace(/Gemini/g, "OmniAI")
+      .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\:/g, "<br><h2>$1</h2><hr><br>");
-
-apiResponseText = apiResponseText.replace(/\*(.*?)\?/g, "<br><b>$1</b>?<br>");
-
-apiResponseText = apiResponseText.replace(/```([\s\S]*?)```/g, "<br><code>$1</code><br>");
-
-apiResponseText = apiResponseText.replace(/`([\s\S]*?)`/g, "<h5>$1</h5>");
-
-apiResponseText.replace(/Gemini/g, "OmniAI");
-
-apiResponseText = apiResponseText.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
-
-messageElement.innerHTML = apiResponseText;
+    // Set the response text to the message element
+    messageElement.innerHTML = formattedResponse;
 
     // Add bot response to chat history
     chatHistory.push({
       role: "model",
-      parts: [{ text: apiResponseText }],
+      parts: [{ text: formattedResponse }],
     });
   } catch (error) {
-    // Handle error in API response
-    console.log(error);
-    messageElement.innerText = "An error occurred. Either the engine you requested does not exist or there was another issue processing your request. If this issue persists please contact us through our help center at OmniAI Help.";
+    console.error("Error fetching bot response:", error);
+    const messageElement = incomingMessageDiv.querySelector(".message-text");
+    messageElement.innerText = "An error occurred. Please try again.";
     messageElement.style.color = "#ff0000";
-	messageElement.style.background = "#ffe7e7";
+    messageElement.style.background = "#ffe7e7";
   } finally {
-    // Reset user's file data, removing thinking indicator and scroll chat to bottom
+    // Reset user's file data, remove thinking indicator, and scroll chat to bottom
     userData.file = {};
     incomingMessageDiv.classList.remove("thinking");
     chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
