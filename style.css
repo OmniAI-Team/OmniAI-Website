@@ -299,7 +299,7 @@ body.show-chatbot .chatbot-popup {
   flex-shrink: 0;
   margin-bottom: 2px;
   align-self: flex-end;
-  border-radius: 50%;
+  border-radius: 30%;
   background: #000000;
 }
 
@@ -382,7 +382,7 @@ body.show-chatbot .chatbot-popup {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: #fff;
+  background: transparent;
   padding: 15px 22px 20px;
 }
 
@@ -391,7 +391,7 @@ body.show-chatbot .chatbot-popup {
   align-items: center;
   position: relative;
   background: #ececec;
-  border-radius: 100px;
+  border-radius: 30px;
   outline: 1px solid #ececec;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
   transition: 0s ease, border-radius 0s;
@@ -411,7 +411,7 @@ body.show-chatbot .chatbot-popup {
   padding: 14px 0 12px 18px;
   scrollbar-color: transparent transparent;
   background: #ececec;
-  border-radius: 100px;
+  border-radius: 30px;
 
 }
 

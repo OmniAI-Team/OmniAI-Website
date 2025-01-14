@@ -42,13 +42,15 @@ const createMessageElement = (content, ...classes) => {
 const generateBotResponse = async (incomingMessageDiv) => {
   const messageElement = incomingMessageDiv.querySelector(".message-text");
 
-  // Add user message to chat history
+  // دمج الرسالة النصية ومحتوى الملف (إن وجد)
+  const combinedMessage = userData.message + (userData.file.text ? `\n\n[ملف نصي مرفق]:\n${userData.file.text}` : "");
+
+  // إضافة الرسالة المدمجة إلى سجل المحادثة
   chatHistory.push({
     role: "user",
-    parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
+    parts: [{ text: combinedMessage }],
   });
 
-  // API request options
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -58,13 +60,12 @@ const generateBotResponse = async (incomingMessageDiv) => {
   };
 
   try {
-    // Fetch bot response from API
     const response = await fetch(API_URL, requestOptions);
     const data = await response.json();
     if (!response.ok) throw new Error(data.error.message);
 
-// Extract and display bot's response text with formatting
-let apiResponseText = data.candidates[0].content.parts[0].text.trim();
+    // استخراج النصوص وعرضها
+    let apiResponseText = data.candidates[0].content.parts[0].text.trim();
 
 
 apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>");
@@ -73,7 +74,8 @@ apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<h2>$1</h2>");
 
 apiResponseText = apiResponseText.replace(/\*(.*?)\:/g, "<br><h2>$1</h2><hr><br>");
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\?/g, "<br><b>$1</b>?<br>");
+// كود استبدال النص
+apiResponseText = apiResponseText.replace(/\*(.*?)\?/g, "<br><b class='suggestion'>$1?</b><br>");
 
 apiResponseText = apiResponseText.replace(/```([\s\S]*?)```/g, "<br><code>$1</code><br>");
 
@@ -143,7 +145,7 @@ const handleOutgoingMessage = (e) => {
 messageInput.addEventListener("input", () => {
   messageInput.style.height = `${initialInputHeight}px`;
   messageInput.style.height = `${messageInput.scrollHeight}px`;
-  document.querySelector(".chat-form").style.borderRadius = messageInput.scrollHeight > initialInputHeight ? "100px" : "100px";
+  document.querySelector(".chat-form").style.borderRadius = messageInput.scrollHeight > initialInputHeight ? "30px" : "30px";
 });
 
 // Handle Enter key press for sending messages
