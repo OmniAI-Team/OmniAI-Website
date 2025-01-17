@@ -22,7 +22,7 @@ code {
   padding: 10px 15px; /* المسافة داخل المربع */
   font-size: 15px; /* حجم الخط */
   border-radius: 10px; /* زوايا دائرية */
-  background-color: #f5f5f5; /* خلفية فاتحة */
+  background-color: #ccfff5; /* خلفية فاتحة */
   display: inline-block; /* لعرض المربع بشكل مضمن */
   max-width: auto; /* أقصى عرض للمربع */
   word-wrap: break-word; /* كسر النص إذا كان طويلاً */
@@ -281,7 +281,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body,
 .chat-form .message-input:hover {
-  scrollbar-color: #ffffff transparent;
+  scrollbar-color: transparent;
 }
 
 .chat-body .message {
@@ -300,7 +300,7 @@ body.show-chatbot .chatbot-popup {
   margin-bottom: 2px;
   align-self: flex-end;
   border-radius: 30%;
-  background: #000000;
+  background: #006c85;
 }
 
 .chat-body .message .message-text {
@@ -324,7 +324,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body .user-message .message-text {
   color: #000000;
-  background: #ececec;
+  background: #ccfff5;
   border-radius: 50px 50px 50px 50px;
 }
 
@@ -345,7 +345,7 @@ body.show-chatbot .chatbot-popup {
   width: 7px;
   opacity: 0.7;
   border-radius: 50%;
-  background: #000000;
+  background: #006c85;
   animation: dotPulse 1.8s ease-in-out infinite;
 }
 
@@ -390,10 +390,9 @@ body.show-chatbot .chatbot-popup {
   display: flex;
   align-items: center;
   position: relative;
-  background: #ececec;
+  background: #ddf7f1;
   border-radius: 30px;
-  outline: 1px solid #ececec;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
+  outline: 1px solid #ddf7f1;
   transition: 0s ease, border-radius 0s;
   margin: 0 250px;
 }
@@ -410,7 +409,7 @@ body.show-chatbot .chatbot-popup {
   font-size: 0.95rem;
   padding: 14px 0 12px 18px;
   scrollbar-color: transparent transparent;
-  background: #ececec;
+  background: #ddf7f1;
   border-radius: 30px;
 
 }
@@ -429,7 +428,7 @@ body.show-chatbot .chatbot-popup {
   width: 35px;
   border: none;
   cursor: pointer;
-  color: #000000;
+  color: #003d4b;
   border-radius: 100%;
   font-size: 1.15rem;
   background: none;
@@ -438,19 +437,19 @@ body.show-chatbot .chatbot-popup {
 
 .chat-form .chat-controls button:hover,
 body.show-emoji-picker .chat-controls #emoji-picker {
-  color: #000000;
-  background: #b4b4b4;
+  color: #006c85;
+  background: #ccfff5;
 }
 
 .chat-form .chat-controls #send-message {
   color: #fff;
   display: none;
-  background: #000000;
+  background: #006c85;
 }
 
 .chat-form .chat-controls #send-message:hover {
-  color: #000000;
-  background: #b4b4b4;
+  color: #006c85;
+  background: #ccfff5;
 }
 
 .chat-form .message-input:valid~.chat-controls #send-message {
@@ -507,7 +506,7 @@ body.show-emoji-picker em-emoji-picker {
 .disclaimer-text {
   text-align: center;
   font-size: 10px;
-  color: #6C6C6C;
+  color: #006c85;
 }
 
 
@@ -552,7 +551,7 @@ body.show-emoji-picker em-emoji-picker {
   }
   
   .suggestion-btn:hover {
-    background-color: #e0e0e0;  /* تغيير اللون عند التمرير فوق الزر */
+    background-color: #ccfff5;  
   }
   
 }  
