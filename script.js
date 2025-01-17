@@ -68,9 +68,9 @@ const generateBotResponse = async (incomingMessageDiv) => {
     let apiResponseText = data.candidates[0].content.parts[0].text.trim();
 
 
-apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<br><strong>$1</strong><br>");
+apiResponseText = apiResponseText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 
-apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<h2>$1</h2>");
+apiResponseText = apiResponseText.replace(/\*(.*?)\*/g, "<i>$1</i>");
 
 apiResponseText = apiResponseText.replace(/\*(.*?)\:/g, "<br><h2>$1</h2><hr><br>");
 

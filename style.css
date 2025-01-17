@@ -15,6 +15,15 @@ h5 {
   padding: 2px 5px;
   font-size: 15px;
 }
+
+hr {
+  color: #2980b9;
+}
+h2 {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
 code {
   font-family: 'Courier New', Courier, monospace; /* نوع الخط */
   font-weight: bold; /* جعل النص عريض */
@@ -294,10 +303,11 @@ body.show-chatbot .chatbot-popup {
 .chat-body .message .bot-avatar {
   width: 35px;
   height: 35px;
-  padding: 6px;
+  padding: 5px;
   fill: #fff;
   flex-shrink: 0;
   margin-bottom: 2px;
+  margin-left: 80px;
   align-self: flex-end;
   border-radius: 30%;
   background: #006c85;
@@ -305,6 +315,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body .message .message-text {
   padding: 12px 16px;
+  margin-right: 80px;
   max-width: auto;
   font-size: 0.95rem;
 }
@@ -537,7 +548,13 @@ body.show-emoji-picker em-emoji-picker {
     padding: 10px;
 }
 
-  
+.chat-body .message .bot-avatar {
+  margin-left: 10px;
+}  
+.chat-body .message .message-text {
+  margin-right: 10px;
+}
+
   .suggestion-btn {
     display: flex;
     align-items: center;
