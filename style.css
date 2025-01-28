@@ -15,15 +15,6 @@ h5 {
   padding: 2px 5px;
   font-size: 15px;
 }
-
-hr {
-  color: #2980b9;
-}
-h2 {
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-
 code {
   font-family: 'Courier New', Courier, monospace; /* نوع الخط */
   font-weight: bold; /* جعل النص عريض */
@@ -31,7 +22,7 @@ code {
   padding: 10px 15px; /* المسافة داخل المربع */
   font-size: 15px; /* حجم الخط */
   border-radius: 10px; /* زوايا دائرية */
-  background-color: #ccfff5; /* خلفية فاتحة */
+  background-color: #f5f5f5; /* خلفية فاتحة */
   display: inline-block; /* لعرض المربع بشكل مضمن */
   max-width: auto; /* أقصى عرض للمربع */
   word-wrap: break-word; /* كسر النص إذا كان طويلاً */
@@ -125,11 +116,11 @@ code {
 }
 a {
   font-style: bold;
-  color: #006c85;
+  color: #057df5;
 }
 
 b {
-  color: #006c85;
+  color: #057df5;
 }
 
 body {
@@ -204,8 +195,8 @@ body {
 
 
 .chat-header #close-chatbot:hover {
-  background: #f9f9f9;
-  color: #000000;
+  background: #b5daff;
+  color: #057df5;
 }
 
 body.show-chatbot #chatbot-toggler {
@@ -257,13 +248,12 @@ body.show-chatbot .chatbot-popup {
 }
 
 .header-info .chatbot-logo {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   padding: 6px;
   fill: #0021ff;
   flex-shrink: 0;
   background: #fff;
-  border-radius: 50%;
 }
 
 .header-info .logo-text {
@@ -290,7 +280,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body,
 .chat-form .message-input:hover {
-  scrollbar-color: transparent;
+  scrollbar-color: #ffffff transparent;
 }
 
 .chat-body .message {
@@ -303,21 +293,22 @@ body.show-chatbot .chatbot-popup {
 .chat-body .message .bot-avatar {
   width: 35px;
   height: 35px;
-  padding: 5px;
+  padding: 6px;
   fill: #fff;
   flex-shrink: 0;
-  margin-bottom: 2px;
   margin-left: 80px;
+  margin-bottom: 2px;
   align-self: flex-end;
   border-radius: 30%;
-  background: #006c85;
+  background: #ececec;
 }
 
 .chat-body .message .message-text {
   padding: 12px 16px;
-  margin-right: 80px;
   max-width: auto;
   font-size: 0.95rem;
+  margin-right: 80px;
+  border-radius: 13px 13px 13px 13px;
 }
 
 .chat-body .bot-message.thinking .message-text {
@@ -335,7 +326,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body .user-message .message-text {
   color: #000000;
-  background: #ccfff5;
+  background: #ececec;
   border-radius: 50px 50px 50px 50px;
 }
 
@@ -356,7 +347,7 @@ body.show-chatbot .chatbot-popup {
   width: 7px;
   opacity: 0.7;
   border-radius: 50%;
-  background: #006c85;
+  background: #057df5;
   animation: dotPulse 1.8s ease-in-out infinite;
 }
 
@@ -401,11 +392,13 @@ body.show-chatbot .chatbot-popup {
   display: flex;
   align-items: center;
   position: relative;
-  background: #ddf7f1;
-  border-radius: 30px;
-  outline: 1px solid #ddf7f1;
+  background: #ececec;
+  border-radius: 20px;
+  outline: 1px solid #ececec;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
   transition: 0s ease, border-radius 0s;
   margin: 0 250px;
+  flex-direction: column;
 }
 
 
@@ -420,7 +413,7 @@ body.show-chatbot .chatbot-popup {
   font-size: 0.95rem;
   padding: 14px 0 12px 18px;
   scrollbar-color: transparent transparent;
-  background: #ddf7f1;
+  background: #ececec;
   border-radius: 30px;
 
 }
@@ -439,7 +432,7 @@ body.show-chatbot .chatbot-popup {
   width: 35px;
   border: none;
   cursor: pointer;
-  color: #003d4b;
+  color: #000000;
   border-radius: 100%;
   font-size: 1.15rem;
   background: none;
@@ -448,19 +441,19 @@ body.show-chatbot .chatbot-popup {
 
 .chat-form .chat-controls button:hover,
 body.show-emoji-picker .chat-controls #emoji-picker {
-  color: #006c85;
-  background: #ccfff5;
+  color: #057df5;
+  background: #b5daff;
 }
 
 .chat-form .chat-controls #send-message {
   color: #fff;
   display: none;
-  background: #006c85;
+  background: #057df5;
 }
 
 .chat-form .chat-controls #send-message:hover {
-  color: #006c85;
-  background: #ccfff5;
+  color: #057df5;
+  background: #b5daff;
 }
 
 .chat-form .message-input:valid~.chat-controls #send-message {
@@ -517,7 +510,7 @@ body.show-emoji-picker em-emoji-picker {
 .disclaimer-text {
   text-align: center;
   font-size: 10px;
-  color: #006c85;
+  color: #6C6C6C;
 }
 
 
@@ -526,7 +519,6 @@ body.show-emoji-picker em-emoji-picker {
     margin: 0 10px;
     padding: 0 10px;
   }
-  
   span {
     font-size: 18px;
   }

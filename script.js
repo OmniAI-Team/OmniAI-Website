@@ -95,7 +95,7 @@ messageElement.innerHTML = apiResponseText;
   } catch (error) {
     // Handle error in API response
     console.log(error);
-    messageElement.innerText = "An error occurred. Either the engine you requested does not exist or there was another issue processing your request. If this issue persists please contact us through our help center at OmniAI Help.";
+    messageElement.innerText = "The server is busy. Please try again later.";
     messageElement.style.color = "#ff0000";
 	messageElement.style.background = "#ffe7e7";
   } finally {
@@ -125,7 +125,7 @@ const handleOutgoingMessage = (e) => {
 
   // Simulate bot response with thinking indicator after a delay
   setTimeout(() => {
-    const messageContent = `<img class="bot-avatar" src="2.png"  width="50" height="50" viewBox="0 0 1024 1024">
+    const messageContent = `<img class="bot-avatar" src="icon.svg"  width="50" height="50" viewBox="0 0 1024 1024">
           <div class="message-text">
             <div class="thinking-indicator">
               <div class="dot"></div>
@@ -145,7 +145,7 @@ const handleOutgoingMessage = (e) => {
 messageInput.addEventListener("input", () => {
   messageInput.style.height = `${initialInputHeight}px`;
   messageInput.style.height = `${messageInput.scrollHeight}px`;
-  document.querySelector(".chat-form").style.borderRadius = messageInput.scrollHeight > initialInputHeight ? "30px" : "30px";
+  document.querySelector(".chat-form").style.borderRadius = messageInput.scrollHeight > initialInputHeight ? "20px" : "20px";
 });
 
 // Handle Enter key press for sending messages
