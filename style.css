@@ -155,7 +155,7 @@ body {
 }
 
 .context-menu li:hover {
-  background-color: #ccfff5;
+  background-color: #b5daff;
   border-radius: 8px;
 }
 
@@ -326,8 +326,8 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body .user-message .message-text {
   color: #000000;
-  background: #ececec;
-  border-radius: 50px 50px 50px 50px;
+  background: #d0e6fc;
+  border-radius: 15px 15px 15px 15px;
 }
 
 .chat-body .user-message .attachment {
@@ -441,7 +441,6 @@ body.show-chatbot .chatbot-popup {
 
 .chat-form .chat-controls button:hover,
 body.show-emoji-picker .chat-controls #emoji-picker {
-  color: #057df5;
   background: #b5daff;
 }
 

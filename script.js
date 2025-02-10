@@ -9,7 +9,7 @@ const chatbotToggler = document.querySelector("#chatbot-toggler");
 const closeChatbot = document.querySelector("#close-chatbot");
 
 // إعدادات API
-const API_KEY = "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"; // استبدل هذا بالمفتاح السري الفعلي
+const API_KEY = "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"; // استبدل هذا بالمفتاح السري الفعلي
 const API_URL = "https://openrouter.ai/api/v1/chat/completions"; // رابط API الصحيح
 
 // بيانات المستخدم
@@ -101,7 +101,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
   } catch (error) {
     // معالجة الأخطاء
     console.error("API Error:", error);
-    messageElement.innerText = `خطأ في الاتصال: ${error.message}`;
+    messageElement.innerText = `Error: ${error.message}`;
     messageElement.style.color = "#ff0000";
     messageElement.style.background = "#ffe7e7";
   } finally {
