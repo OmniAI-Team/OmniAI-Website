@@ -25,7 +25,7 @@ const userData = {
 const chatHistory = [
   {
     role: "assistant",
-    content: "مرحبًا! أنا مساعدك الافتراضي. كيف يمكنني مساعدتك؟", // رسالة بدء المحادثة
+    content: "Hi, I am OmniAI (امني اي اي) from WailTech (وائل تيك) (OmniAI team) created in 2024 by wail achouri (وائل عاشوري ) my old name is WailAI (اسم قديم )", // رسالة بدء المحادثة
   },
 ];
 

@@ -1,11 +1,11 @@
 {
     "name": "OmniAI",
-    "short_name": "OmniAI",
+    "short_name": "OmniAI 2025",
     "description": "Your ultimate AI assistant.",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#006c85",
+    "theme_color": "#2980b9",
     "icons": [
       {
         "src": "1.png",

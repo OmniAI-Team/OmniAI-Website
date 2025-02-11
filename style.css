@@ -299,8 +299,8 @@ body.show-chatbot .chatbot-popup {
   margin-left: 80px;
   margin-bottom: 2px;
   align-self: flex-end;
-  border-radius: 30%;
-  background: #ececec;
+  border-radius: 100%;
+  background: #f4f4f4;
 }
 
 .chat-body .message .message-text {
@@ -326,7 +326,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-body .user-message .message-text {
   color: #000000;
-  background: #d0e6fc;
+  background: #d3e7fa;
   border-radius: 15px 15px 15px 15px;
 }
 
@@ -347,7 +347,7 @@ body.show-chatbot .chatbot-popup {
   width: 7px;
   opacity: 0.7;
   border-radius: 50%;
-  background: #057df5;
+  background: #000000;
   animation: dotPulse 1.8s ease-in-out infinite;
 }
 
@@ -441,7 +441,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-form .chat-controls button:hover,
 body.show-emoji-picker .chat-controls #emoji-picker {
-  background: #b5daff;
+  background: #f9f9f9;
 }
 
 .chat-form .chat-controls #send-message {
@@ -559,7 +559,7 @@ body.show-emoji-picker em-emoji-picker {
   }
   
   .suggestion-btn:hover {
-    background-color: #ccfff5;  
+    background-color: #b5daff;  
   }
   
 }  
