@@ -86,6 +86,7 @@ code {
 }
 
 .suggestion-btn {
+  border: 1px solid #dfdfdf;
   padding: 10px 15px;
   font-size: 14px;
   background-color: #f5f8fe;
@@ -298,13 +299,14 @@ body.show-chatbot .chatbot-popup {
   width: 35px;
   height: 35px;
   padding: 6px;
-  fill: #fff;
+  fill: #dfdfdf;
   flex-shrink: 0;
   margin-left: 80px;
   margin-bottom: 2px;
   align-self: flex-end;
   border-radius: 100%;
-  background: #f4f4f4;
+  background: #f5f8fe;
+  border: 1px solid #dfdfdf;
 }
 
 .chat-body .message .message-text {
@@ -397,12 +399,13 @@ body.show-chatbot .chatbot-popup {
   align-items: center;
   position: relative;
   background: #f5f8fe;
-  border-radius: 30px;
+  border-radius: 20px;
   outline: 1px solid #f5f8fe;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
   transition: 0s ease, border-radius 0s;
   margin: 0 250px;
   flex-direction: column;
+  border: 1px solid #dfdfdf;
 }
 
 
@@ -418,7 +421,7 @@ body.show-chatbot .chatbot-popup {
   padding: 14px 0 12px 18px;
   scrollbar-color: transparent transparent;
   background: #f5f8fe;
-  border-radius: 30px;
+  border-radius: 20px;
 
 }
 
@@ -445,7 +448,7 @@ body.show-chatbot .chatbot-popup {
 
 .chat-form .chat-controls button:hover,
 body.show-emoji-picker .chat-controls #emoji-picker {
-  background: #f9f9f9;
+  background: #b5daff;
 }
 
 .chat-form .chat-controls #send-message {
