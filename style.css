@@ -418,7 +418,7 @@ body.show-chatbot .chatbot-popup {
   max-height: 180px;
   scrollbar-width: thin;
   font-size: 0.95rem;
-  padding: 14px 0 12px 18px;
+  padding: 14px 0 10px 14px;
   scrollbar-color: transparent transparent;
   background: #f5f8fe;
   border-radius: 20px;
